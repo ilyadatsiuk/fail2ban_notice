@@ -5,8 +5,10 @@ import os
 from telebot import types
 import threading
 
-TOKEN = 'YOUR TELEGRAM BOT TOKEN '
-CHAT_ID = YOUR CHAT ID
+TOKEN = 'YOUR TELEGRAM BOT TOKEN' # Put your Telegram bot token
+CHAT_ID = YOUR CHAT ID # Put your chat id in telegram.
+SLEEP_TIME = 60 # In seconds
+
 FAIL2BAN_LOG_PATH = '/var/log/fail2ban.log'
 
 PREVIOUS_BANNED_IPS_FILE = 'previous_banned_ips.txt'
@@ -62,7 +64,7 @@ def cleanup_previous_banned_ips():
 def whileCheckList():
     while True:
         check_fail2ban_log()
-        time.sleep(60)
+        time.sleep(SLEEP_TIME)
 
 
 thread1 = threading.Thread(target=whileCheckList, name="While Check List")
